@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Motos</title>
+    <link rel="website icon" type="jpg" href="LOGO.jpg">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(rgba(0, 2, 45, 0.838), rgba(0, 0, 0, 0.002)), url(blanc.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        header {
+            background-color: #000000;
+            color: rgba(152, 152, 152, 0.82);
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 0px 0 10PX 10PX;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+            border-width: 3px;
+        }
+
+        nav ul li a {
+            color: #fffbfb;
+            text-decoration: none;
+
+        }
+
+        header nav ul li a:hover {
+
+            color: #fffcfc;
+            background-color: #fffbfb;
+        }
+
+        .produit {
+            background-color: #0f0f0f;
+            border: 2px solid rgb(10, 10, 10);
+            border-radius: 8px;
+        }
+
+        .nav:hover {
+            background-color: #17114b;
+            border: 2px solid rgb(10, 10, 10);
+            border-radius: 8px;
+
+        }
+
+        .products {
+            padding: 2rem;
+
+        }
+
+        .products h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 90PX;
+            font-size: 3rem;
+            border: solid 3PX rgb(255, 251, 251);
+            display: inline-block;
+            margin-left: 440px;
+            border-radius: 10px;
+            background-color: #000000;
+            outline: 6PX solid black;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: #151111;
+            border: 8px solid #070707;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.5s;
+        }
+
+        .product-card:hover {
+            background-color: #000000;
+            transform: scale(1.07);
+            box-shadow: 10PX 10px 20px rgb(0, 0, 0);
+
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            margin: 0.5rem;
+            color: #ffffff;
+        }
+
+        .product-card p {
+            margin: 0.5rem;
+            color: #a8a7a7;
+        }
+
+        .product-card .price {
+            margin: 0.5rem;
+            color: rgba(255, 255, 255, 0.404);
+            font-weight: bold;
+        }
+
+        .product-card button {
+            background-image: linear-gradient(rgba(0, 2, 45, 0.42), rgba(0, 0, 0, 0.228));
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 1rem;
+            border-radius: 9px;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+
+        .product-card button:hover {
+            background: #000679;
+            color: #ffffff;
+            font-weight: bolder;
+        }
+
+        .h {
+            position: fixed;
+        }
+        
+         /* Style du bouton flottant Accueil */
+.h {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000; /* S'assure qu'il reste au-dessus du contenu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1); /* Effet transparent */
+    backdrop-filter: blur(10px); /* Flou d'arrière-plan */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%; /* Bouton rond */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+/* Style de l'icône à l'intérieur */
+.home-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); /* Force l'icône en blanc si elle est noire à l'origine */
+    transition: transform 0.3s ease;
+}
+
+/* Effets au Survol (Hover) */
+.h:hover {
+    background: #000679; /* Couleur assortie à vos boutons "Shop Now" */
+    transform: scale(1.1) rotate(5deg);
+    border-color: #fff;
+    box-shadow: 0 8px 25px rgba(0, 6, 121, 0.5);
+}
+
+.h:hover .home-icon {
+    transform: scale(1.1);
+    filter: invert(1); /* Garde l'icône blanche */
+}
+
+/* Optionnel : Adaptation pour mobile */
+@media (max-width: 768px) {
+    .h {
+        top: 15px;
+        left: 15px;
+        width: 45px;
+        height: 45px;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <a class="h" href="index.html"><img src="homelogin.svg" alt=""></a>
+    <section class="products">
+        <h2>NOS MOTOS</h2>
+        <div class="product-grid">            
+            <div class="product-card">
+                <img src="MT03.jpg" alt="produit">
+                <h3>MT 03</h3><br>
+                <p>321cm3</p><br>
+                <span class="price">68 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+              <div class="product-card">
+                <img src="MT10.jpg" alt="produit">
+                <h3>MT 10</h3><br>
+                <p>998 cm3</p><br>
+                <span class="price">140 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="MT07.jpg" alt="produit">
+                <h3>MT 07</h3><br>
+                <p>689 cm3</p><br>
+                <span class="price">120 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="MT09.jpg" alt="produit">
+                <h3>MT 09</h3><br>
+                <p>890 cm3</p><br>
+                <span class="price">145 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="T-MAX.jpg" alt="produit"><br>
+                <br>
+                <h3>T-MAX 530</h3><br>
+                <p>530cm3</p><br>
+                <span class="price">128 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">ض
+                <img src="T-MAX560.jpg" alt="produit">
+                <h3>T-MAX 560</h3><br>
+                <p>560 cm3</p><br>
+                <span class="price">125 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">ض
+                <img src="X-Max 300.jpg" alt="produit">
+                <h3>X-MAX 300</h3><br>
+                <p>292 cm3</p><br>
+                <span class="price">155 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+          
+            <div class="product-card">
+                <img src="SH 350i.jpg" alt="produit">
+                <h3>SH 350i</h3><br>
+                <p>350 cm3</p><br>
+                <span class="price">77 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="SH 300.webp" alt="produit">
+                <h3>SH 300</h3><br>
+                <p>300 cm3</p><br>
+                <span class="price">63 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="SH150.webp" alt="produit">
+                <h3>SH 150</h3><br>
+                <p>150 cm3</p><br>
+                <span class="price">50 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="sh 125.jpg" alt="produit">
+                <h3>SH 125</h3><br>
+                <p>125 cm3</p><br>
+                <span class="price">40 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="hornet600.jpg" alt="produit">
+                <h3>HORNET 600</h3><br>
+                <p>599 cm3</p><br>
+                <span class="price">33 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="hornet1000.jpg" alt="produit">
+                <h3>HORNET 1000</h3><br>
+                <p>998 cm3</p><br>
+                <span class="price">112 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="X-ADV.jpg" alt="produit">
+                <h3>X-ADV</h3><br>
+                <p>750 cm3</p><br>
+                <span class="price">200 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ADV 150.png" alt="produit">
+                <h3>ADV 150</h3><br>
+                <p>150 cm3</p><br>
+                <span class="price">40 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="R1M.webp" alt="produit">
+                <h3>R1M</h3><br>
+                <p>998 cm3</p><br>
+                <span class="price">240 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="R1.jpg" alt="produit">
+                <h3>R1</h3><br>
+                <p>998 cm3</p><br>
+                <span class="price">170 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="R6.jpg" alt="produit">
+                <h3>R6</h3><br>
+                <p>599 cm3</p><br>
+                <span class="price">110 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="R7.jpg" alt="produit">
+                <h3>R7</h3><br>
+                <p>689 cm3</p><br>
+                <span class="price">150 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="Tenere700.webp" alt="produit">
+                <h3>Tenere 700</h3><br>
+                <p>689 cm3</p><br>
+                <span class="price">160 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="raptor 700.jpg" alt="produit">
+                <h3>Raptor 700</h3><br>
+                <p>700 cm3</p><br>
+                <span class="price">120 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="YZ 450 F.jpg" alt="produit">
+                <h3>YZ 450 F</h3><br>
+                <p>449 cm3</p><br>
+                <span class="price">100 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="YZ250.jpg" alt="produit">
+                <h3>YZ 250</h3><br>
+                <p>249 cm3</p><br>
+                <span class="price">86 500 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="yz125.jpg" alt="produit">
+                <h3>YZ 125</h3><br>
+                <p>125 cm3</p><br>
+                <span class="price">69 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="YZ80.webp" alt="produit">
+                <h3>YZ 80</h3><br>
+                <p>80 cm3</p><br>
+                <span class="price">130 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="XTX.jpg" alt="produit">
+                <h3>XTX</h3><br>
+                <p>660 cm3</p><br>
+                <span class="price">120 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="Z1000.png" alt="produit">
+                <h3>Z 1000</h3><br>
+                <p>1043 cm3</p><br>
+                <span class="price">180 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="Z900.jpg" alt="produit">
+                <h3>Z 900</h3><br>
+                <p>948 cm3</p><br>
+                <span class="price">130 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="Z800.jpg" alt="produit">
+                <h3>Z 800</h3><br>
+                <p>806 cm3</p><br>
+                <span class="price">90 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="Z750.jpg" alt="produit">
+                <h3>Z 750</h3><br>
+                <p>748 cm3</p><br>
+                <span class="price">70 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="Z650.webp" alt="produit">
+                <h3>Z650</h3><br>
+                <p>690 cm3</p><br>
+                <span class="price">58 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ZX10RRR.jpg" alt="produit">
+                <h3>ZX 10 rrr</h3><br>
+                <p>998 cm3</p><br>
+                <span class="price">210 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ZX6R.jpg" alt="produit">
+                <h3>ZX 6 r</h3><br>
+                <p>840 cm3</p><br>
+                <span class="price">160 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="KX450.webp" alt="produit">
+                <h3>KX450</h3><br>
+                <p>449 cm3</p><br>
+                <span class="price">80 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="KX250.jpg" alt="produit">
+                <h3>KX250</h3><br>
+                <p>399 cm3</p><br>
+                <span class="price">67 400 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="KX125.webp" alt="produit">
+                <h3>KX 125</h3><br>
+                <p>310 cm3</p><br>
+                <span class="price">55 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="H2SX.avif" alt="produit">
+                <h3>H2SX</h3><br>
+                <p>998 cm3</p><br>
+                <span class="price">280 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ZH2.webp" alt="produit">
+                <h3>ZH2</h3><br>
+                <p>998 cm3</p><br>
+                <span class="price">260 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="S1000.webp" alt="produit">
+                <h3>S1000</h3><br>
+                <p>999 cm3</p><br>
+                <span class="price">200 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="FZ6.jpg" alt="produit">
+                <h3>FZ6</h3><br>
+                <p>600 cm3</p><br>
+                <span class="price">60 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="FZ8.jpg" alt="produit">
+                <h3>FZ8 </h3><br>
+                <p>779 cm3</p><br>
+                <span class="price">50 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="FZ1.jpg" alt="produit">
+                <h3>FZ1</h3><br>
+                <p>998 cm3</p><br>
+                <span class="price">100 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="XJ6.jpg" alt="produit">
+                <h3>XJ6</h3><br>
+                <p>600 cm3</p><br>
+                <span class="price">68 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="H2.webp" alt="produit">
+                <h3>H2</h3><br>
+                <p>998 cm3</p><br>
+                <span class="price">275 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="harley.jpg" alt="produit">
+                <h3>Harley </h3><br>
+                <p> 1868 cm3 </p><br>
+                <span class="price">179 325 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="KTM.jpg" alt="produit">
+                <h3>KTM </h3><br>
+                <p>1301 cm3 </p><br>
+                <span class="price">190 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ducati.jpg" alt="produit">
+                <h3>DUCATI</h3><br>
+                <p>1158 cm3</p><br>
+                <span class="price">250 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="fjr.webp" alt="produit">
+                <h3>FJR 1300</h3><br>
+                <p>1298 cm3</p><br>
+                <span class="price">210 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="triumph.avif" alt="produit">
+                <h3>triumph tiger 1200</h3><br>
+                <p>1160 cm3</p><br>
+                <span class="price">220 000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="33.jpg" alt="produit">
+                <h3>33 becane </h3><br>
+                <p>50 cm3 (Modèle 2025)</p><br>
+                <span class="price">12500 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="sanyaa.webp" alt="produit">
+                <h3>SANYA X1000</h3><br>
+                <p>50 cm3 (Modèle 2025)</p><br>
+                <span class="price">12000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="spirit mbk.jpg" alt="produit">
+                <h3>Spirit mbk </h3><br>
+                <p>70 cm3(Modèle 2024)</p><br>
+                <span class="price">14000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="stunt mbk.jpg" alt="produit">
+                <h3>Stunt mbk</h3><br>
+                <p>60 cm3</p><br>
+                <span class="price">13000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="netro.jpg" alt="produit">
+                <h3>Netro</h3><br>
+                <p>50 cm3</p><br>
+                <span class="price">20000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="kymco.jpg" alt="produit">
+                <h3>Kymco agility 50</h3><br>
+                <p>50 cm3</p><br>
+                <span class="price">16000DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="jog rr.jpg" alt="produit">
+                <h3>Jog rr</h3><br>
+                <p>50 cm3 (Modèle 2025)</p><br>
+                <span class="price">14000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Motos</title>
+    <link rel="website icon" type="jpg" href="LOGO.jpg">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(rgba(0, 2, 45, 0.838), rgba(0, 0, 0, 0.002)), url(blanc.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        header {
+            background-color: #000000;
+            color: rgba(152, 152, 152, 0.82);
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 0px 0 10PX 10PX;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+            border-width: 3px;
+        }
+
+        nav ul li a {
+            color: #fffbfb;
+            text-decoration: none;
+
+        }
+
+        header nav ul li a:hover {
+
+            color: #fffcfc;
+            background-color: #fffbfb;
+        }
+
+        .produit {
+            background-color: #0f0f0f;
+            border: 2px solid rgb(10, 10, 10);
+            border-radius: 8px;
+        }
+
+        .nav:hover {
+            background-color: #17114b;
+            border: 2px solid rgb(10, 10, 10);
+            border-radius: 8px;
+
+        }
+
+        .products {
+            padding: 2rem;
+
+        }
+
+        .products h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 90PX;
+            font-size: 3rem;
+            border: solid 3PX rgb(255, 251, 251);
+            display: inline-block;
+            margin-left: 440px;
+            border-radius: 10px;
+            background-color: #000000;
+            outline: 6PX solid black;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: #151111;
+            border: 8px solid #070707;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.5s;
+        }
+
+        .product-card:hover {
+            background-color: #000000;
+            transform: scale(1.07);
+            box-shadow: 10PX 10px 20px rgb(0, 0, 0);
+
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            margin: 0.5rem;
+            color: #ffffff;
+        }
+
+        .product-card p {
+            margin: 0.5rem;
+            color: #a8a7a7;
+        }
+
+        .product-card .price {
+            margin: 0.5rem;
+            color: rgba(255, 255, 255, 0.404);
+            font-weight: bold;
+        }
+
+        .product-card button {
+            background-image: linear-gradient(rgba(0, 2, 45, 0.42), rgba(0, 0, 0, 0.228));
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 1rem;
+            border-radius: 9px;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+
+        .product-card button:hover {
+            background: #001c97;
+            color: #ffffff;
+            font-weight: bolder;
+        }
+
+        .h {
+            position: fixed;
+        }
+        
+      /* Style du bouton flottant Accueil */
+.h {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000; /* S'assure qu'il reste au-dessus du contenu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1); /* Effet transparent */
+    backdrop-filter: blur(10px); /* Flou d'arrière-plan */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%; /* Bouton rond */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+/* Style de l'icône à l'intérieur */
+.home-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); /* Force l'icône en blanc si elle est noire à l'origine */
+    transition: transform 0.3s ease;
+}
+
+/* Effets au Survol (Hover) */
+.h:hover {
+    background: #000679; /* Couleur assortie à vos boutons "Shop Now" */
+    transform: scale(1.1) rotate(5deg);
+    border-color: #fff;
+    box-shadow: 0 8px 25px rgba(0, 6, 121, 0.5);
+}
+
+.h:hover .home-icon {
+    transform: scale(1.1);
+    filter: invert(1); /* Garde l'icône blanche */
+}
+
+/* Optionnel : Adaptation pour mobile */
+@media (max-width: 768px) {
+    .h {
+        top: 15px;
+        left: 15px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <a class="h" href="index.html"><img src="homelogin.svg" alt=""></a>
+    <section class="products">
+        <h2>ACCESSOIRES</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="casque1.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">2100 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="casque2.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">2000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="casque3.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">1300 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="casque4.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">1900 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">ض
+                <img src="casque5.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">650 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="casque6.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">500 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="casque7.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">150 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="casque8.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">400 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="lbsa1.png" alt="produit">
+                <h3>Vetement</h3><br>
+                <p></p><br>
+                <span class="price">6500 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="lbsa2.webp" alt="produit">
+                <h3>Vetement</h3><br>
+                <p></p><br>
+                <span class="price">5000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="lbsa3.jpeg" alt="produit">
+                <h3>Vetement</h3><br>
+                <p></p><br>
+                <span class="price">3500 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="lbsa4.jpg" alt="produit">
+                <h3>Vetement</h3><br>
+                <p></p><br>
+                <span class="price">4000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ligat1.webp" alt="produit">
+                <h3>gants</h3><br>
+                <p></p><br>
+                <span class="price">250 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ligat2.webp" alt="produit">
+                <h3>gants</h3><br>
+                <p></p><br>
+                <span class="price">300 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ligat3.jpg" alt="produit">
+                <h3>gants</h3><br>
+                <p></p><br>
+                <span class="price">500 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ligat4.webp" alt="produit">
+                <h3>gants</h3><br>
+                <p></p><br>
+                <span class="price">400 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ligat5.jpg" alt="produit">
+                <h3>gants</h3><br>
+                <p></p><br>
+                <span class="price">350 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ligat6.jpg" alt="produit">
+                <h3>gants</h3><br>
+                <p></p><br>
+                <span class="price">200 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="carinage.jpg" alt="produit">
+                <h3>Accessoires</h3><br>
+                <p></p><br>
+                <span class="price">?? DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="carinage2.jpg" alt="produit">
+                <h3>Accessoires</h3><br>
+                <p></p><br>
+                <span class="price">?? DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="stickers1.jpeg" alt="produit">
+                <h3>Stickers</h3><br>
+                <p></p><br>
+                <span class="price">?? DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="stickers2.jpeg" alt="produit">
+                <h3>Stickers</h3><br>
+                <p></p><br>
+                <span class="price">?? DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="stickers3.jpeg" alt="produit">
+                <h3>Stickers</h3><br>
+                <p></p><br>
+                <span class="price">?? DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="stickers 4.png" alt="produit">
+                <h3>Stickers</h3><br>
+                <p></p><br>
+                <span class="price">?? DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+        
+        
+        
+
+        </div>
+    </section>
+</body>
+
+</html>
